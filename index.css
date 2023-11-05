@@ -1,0 +1,77 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+header {
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.between {
+  margin: 0;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: white;
+}
+
+.btn.agian {
+  background-color: #ffc107;
+}
+
+.number {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+.main {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.left,
+.right {
+  text-align: center;
+}
+
+.guess {
+  padding: 0.5rem;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.message {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #333;
+}
+
+.label-score,
+.label-highscore {
+  font-size: 1rem;
+  margin-top: 1rem;
+  color: #666;
+}
+
+.score,
+.highscore {
+  font-weight: bold;
+}

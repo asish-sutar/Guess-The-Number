@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess My Number</title>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Guess My Number</h1>
+        <p class="between">between 1 to 20</p>
+        <button class="btn again">Again!</button>
+        <div class="number">?</div>
+    </header>
+    <main class="main">
+        <section class="left">
+            <input type="number" class="guess" />
+            <button class="btn check">Check!</button>
+        </section>
+        <section class="right">
+            <p class="message">start guessing</p>
+            <p class="label-score">score: <span class="score">20</span></p>
+            <p class="label-highscore">highscore: <span class="highscore">0</span></p>
+        </section>
+    </main>
+</body>
+
+<script>
+    let secretNumber = Math.floor(Math.random() * 20) + 1;
+    let score = 20;
+    let highscore = 0;
+
+    const displayMessage = message => {
+        document.querySelector('.message').textContent = message;
+    };
+
+    const displayScore = newScore => {
+        document.querySelector('.score').textContent = newScore;
+    };
+
+    const displayHighscore = newHighscore => {
+        document.querySelector('.highscore').textContent = newHighscore;
+    };
+
+    document.querySelector('.check').addEventListener('click', function () {
+        const guess = Number(document.querySelector('.guess').value);
+
+        if (!guess) {
+            displayMessage('No number!');
+        } else if (guess === secretNumber) {
+            displayMessage('Correct number!');
+            document.querySelector('.number').textContent = secretNumber;
+            document.querySelector('body').style.backgroundColor = '#60b347';
+
+            if (score > highscore) {
+                highscore = score;
+                displayHighscore(highscore);
+            }
+        } else if (guess !== secretNumber) {
+            if (score > 1) {
+                displayMessage(guess > secretNumber ? 'Too high!' : 'Too low!');
+                score--;
+                displayScore(score);
+            } else {
+                displayMessage('You lost the game!');
+                displayScore(0);
+            }
+        }
+    });
+
+    document.querySelector('.again').addEventListener('click', function () {
+        secretNumber = Math.floor(Math.random() * 20) + 1;
+        score = 20;
+        displayMessage('Start guessing');
+        displayScore(score);
+        document.querySelector('.guess').value = '';
+        document.querySelector('.number').textContent = '?';
+        document.querySelector('body').style.backgroundColor = '#f0f0f0';
+    });
+</script>
+
+</html>
