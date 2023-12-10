@@ -2,7 +2,7 @@
 
 Welcome to the "Guess My Number" game! Can you guess the secret number between 1 and 20?
 
-## Table of Contents
+## Table of Contents 
 
 - [Description](#description)
 - [How to Play](#how-to-play)
